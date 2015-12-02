@@ -87,7 +87,7 @@ module.exports = function(options) {
 							if(isToIgnoreError) {
 								callback(null);
 							} else if(error) {
-								callback(error);
+								return callback(error);
 							} else {
 								// create the new link/script element
 								var newElement = $(tags.begin + data + tags.end);
@@ -100,7 +100,7 @@ module.exports = function(options) {
 
 								$(element).replaceWith(newElement);
 
-								callback(error);
+								callback(null);
 							}
 
 						});
